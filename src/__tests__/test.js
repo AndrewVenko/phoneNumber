@@ -15,4 +15,9 @@ describe('cleanPhoneNumber', () => {
     const number = '+86 000 000 0000';
     expect(cleanPhoneNumber(number)).toBe('+860000000000');
   });
+
+  it('Ошибка неверный номер', () => {
+    const number = '+86 000 000 00000';
+    expect(() => cleanPhoneNumber(number)).toThrow('Неверный формат номера телефона');
+  });
 });
